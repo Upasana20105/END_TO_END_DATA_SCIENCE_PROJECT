@@ -108,14 +108,6 @@ Here's information about the provided files, suitable for a GitHub README file d
 
 ---
 
-## Project Overview
-
-This repository contains the code and resources for a House Price Prediction project. The goal of this project is to predict house prices based on various features using a machine learning model. The project includes data preprocessing, model training, and a web application for interactive predictions.
-
-## Files Description
-
-Here's a breakdown of the files included in this repository:
-
 ### 1. Data Visualizations & Analysis
 
 * **`graph_1.png`**: This image displays the **distribution of `SalePrice`**, the target variable for our prediction model. It is a histogram with a kernel density estimate (KDE) curve, showing the frequency of different house sale prices. This visualization helps understand the target variable's spread and skewness.
