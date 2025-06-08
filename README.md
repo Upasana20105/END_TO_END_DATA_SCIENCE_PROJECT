@@ -139,6 +139,17 @@ The `process_X.jpg` series of images document the data processing and model trai
 
 ---
 
-## 📸 Screenshots
-Let me know if you want the same README in Markdown (`README.md`) format for direct GitHub upload!
+## 📸 Output
+---
+![Image](https://github.com/user-attachments/assets/b6dfb972-a635-48f9-8a92-112e6414858f)
+![Image](https://github.com/user-attachments/assets/242dada4-1f9e-4a5f-af3f-8912cc68ffdf)
+![Image](https://github.com/user-attachments/assets/facb8ae8-1113-4a20-bc68-ed051bfdb3e7)
+![Image](https://github.com/user-attachments/assets/92c8940a-b50d-4fd9-b93c-e9768c7c353d)
+![Image](https://github.com/user-attachments/assets/b0683cd3-9756-42ac-9c83-ad4c11dc34b0)
+![Image](https://github.com/user-attachments/assets/d24f40bd-0b9c-4292-9621-09383b850899)
+![Image](https://github.com/user-attachments/assets/ca4b8886-aab2-4c88-8774-9c349c7894ba)
+![Image](https://github.com/user-attachments/assets/089097db-4e83-416f-a921-6283a91481a1)
+![Image](https://github.com/user-attachments/assets/b1df7caf-6788-48fe-b469-17f6eb011be6)
+![Image](https://github.com/user-attachments/assets/b56cbeb0-4797-4256-a808-e960488817d7)
+![Image](https://github.com/user-attachments/assets/79376786-c52c-4e8d-ba10-cd7c9cd33557)
 
