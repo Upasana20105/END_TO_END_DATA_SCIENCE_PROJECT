@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="number"], input[type="text"], select {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Prediction</h1>
+        <p>Enter the house features below to get a predicted price.</p>
+        <form id="predictionForm">
+            <label for="GrLivArea">Gross Living Area (sq ft):</label>
+            <input type="number" id="GrLivArea" name="GrLivArea" value="1710" required><br>
+
+            <label for="OverallQual">Overall Quality (1-10):</label>
+            <input type="number" id="OverallQual" name="OverallQual" value="7" required><br>
+
+            <label for="GarageCars">Garage Cars:</label>
+            <input type="number" id="GarageCars" name="GarageCars" value="2" required><br>
+
+            <label for="GarageArea">Garage Area (sq ft):</label>
+            <input type="number" id="GarageArea" name="GarageArea" value="548" required><br>
+
+            <label for="TotalBsmtSF">Total Basement SF:</label>
+            <input type="number" id="TotalBsmtSF" name="TotalBsmtSF" value="856" required><br>
+
+            <label for="1stFlrSF">First Floor SF:</label>
+            <input type="number" id="1stFlrSF" name="1stFlrSF" value="856" required><br>
+
+            <label for="FullBath">Full Bathrooms:</label>
+            <input type="number" id="FullBath" name="FullBath" value="2" required><br>
+
+            <label for="TotRmsAbvGrd">Total Rooms Above Grade:</label>
+            <input type="number" id="TotRmsAbvGrd" name="TotRmsAbvGrd" value="8" required><br>
+
+            <label for="YearBuilt">Year Built:</label>
+            <input type="number" id="YearBuilt" name="YearBuilt" value="2003" required><br>
+
+            <label for="MSSubClass">MSSubClass:</label>
+            <input type="number" id="MSSubClass" name="MSSubClass" value="60" required><br>
+
+            <label for="MSZoning">MSZoning:</label>
+            <select id="MSZoning" name="MSZoning">
+                <option value="RL">RL</option>
+                <option value="RM">RM</option>
+                <option value="FV">FV</option>
+                <option value="RH">RH</option>
+                <option value="C (all)">C (all)</option>
+            </select><br>
+
+            <label for="CentralAir">Central Air:</label>
+            <select id="CentralAir" name="CentralAir">
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+            </select><br>
+
+            <button type="submit">Predict Price</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                // Try to convert to number if possible, otherwise keep as string
+                data[key] = isNaN(Number(value)) ? value : Number(value);
+            });
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                const resultDiv = document.getElementById('result');
+
+                if (response.ok) {
+                    resultDiv.textContent = `Predicted House Price: $${result.predicted_house_price.toLocaleString()}`;
+                    resultDiv.style.color = 'green';
+                } else {
+                    resultDiv.textContent = `Error: ${result.error || 'Unknown error'}`;
+                    resultDiv.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                document.getElementById('result').textContent = 'An error occurred while connecting to the server.';
+                document.getElementById('result').style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
