@@ -15,8 +15,6 @@
 
 *DESCRIPTION OF THE TASK*:
 
-Here’s a well-structured **GitHub README description** summarizing all the uploaded files and how they work together in your **House Price Prediction Web App using Machine Learning and Flask** project:
-
 ---
 
 # 🏠 House Price Prediction Web App
