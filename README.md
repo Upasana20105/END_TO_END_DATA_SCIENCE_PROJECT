@@ -104,10 +104,6 @@ This project is a web-based application that predicts house prices based on user
 
 ---
 
-Here's information about the provided files, suitable for a GitHub README file description:
-
----
-
 ### 1. Data Visualizations & Analysis
 
 * **`graph_1.png`**: This image displays the **distribution of `SalePrice`**, the target variable for our prediction model. It is a histogram with a kernel density estimate (KDE) curve, showing the frequency of different house sale prices. This visualization helps understand the target variable's spread and skewness.
